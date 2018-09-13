@@ -3,11 +3,14 @@
 # Step 2: paste a string of where you are in the variable: where_am_i
 # Step 3: Run code
 
-# Please input where you are in the chapter
-where_am_i = "Anonymous vs. Named" 
+# What you should know: 
+# reading file_object breaks at end of Book 5!
 
-# DO NOT DO ANYTHING BELOW
-filename = 'chaptertext.txt'
+# Please input where you are in the chapter
+where_am_i = "(which in this case includes the implied value of it as an actual function) " 
+
+# Add in your filename (grandscheme.txt or chapter.txt)
+filename = 'grandscheme.txt'
 
 file_text = ''
 
@@ -15,6 +18,10 @@ print("\n \n")
 with open(filename) as file_object:
     for line in file_object:
         file_text = file_text + line
+        # if statement below is used to stop grandscheme.txt
+        # when it reaches the end of Book 5
+        if "clean async flow control abstraction" in line:
+            break    
 
 file_text_length = len(file_text)
 reader_location_length = file_text.index(where_am_i)
@@ -23,7 +30,9 @@ reader_location_length = file_text.index(where_am_i)
 # print(file_text)
 
 # Below prints length of text (with spaces)
-# print(file_text_length)
+# FULL BOOK = 1,541,863 characters
+# FULL BOOK without ES6 & Beyond = 1,161,791 characters
+print("{:,}".format(file_text_length), " characters")
 
 # Below prints the index of where the reader is in the text file
 # print(reader_location_length)
